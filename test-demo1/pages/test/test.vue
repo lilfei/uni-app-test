@@ -1,0 +1,135 @@
+<template>
+	<view class="container">
+		<view class="list" v-for="(item,index) in list" :key="index" @click="goDetailPage(item.path)">
+			<text>{{item.name}}</text>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				list: [{
+						name: "view_test",
+						path: "view_test",
+					},
+					{
+						name: "scroll_view_test",
+						path: "scroll_view_test",
+					},
+					{
+						name: "swiper_test",
+						path: "swiper_test",
+					},
+					{
+						name: "movable_area_test",
+						path: "movable_area_test",
+					},
+				]
+			}
+		},
+		methods: {
+			goDetailPage(url) {
+				if (this.navigateFlag) {
+					return;
+				}
+				this.navigateFlag = true;
+				uni.navigateTo({
+					url: '/pages/test_all/' + url + '/' + url
+				})
+				setTimeout(() => {
+					this.navigateFlag = false;
+				}, 200)
+			}
+		},
+
+		onLoad(e) {
+			console.log("onLoad: ", e)
+		},
+		onShow(e) {
+			console.log("onShow: ", e)
+		},
+		onReady(e) {
+			console.log("onReady: ", e)
+		},
+		onHide(e) {
+			console.log("onHide: ", e)
+		},
+		onUnload(e) {
+			console.log("onUnload: ", e)
+		},
+		onResize(e) {
+			console.log("onResize: ", e)
+		},
+		onPullDownRefresh(e) {
+			console.log("onPullDownRefresh: ", e)
+		},
+		onReachBottom(e) {
+			console.log("onReachBottom: ", e)
+		},
+
+		/**
+		 * @param {String} index 被点击tabItem的序号，从0开始
+		 * @param {String} pagePath 被点击tabItem的页面路径
+		 * @param {String} text 被点击tabItem的按钮文字
+		 */
+		onTabItemTap(index, pagePath, text) {
+			console.log("onTabItemTap: ", index)
+		},
+
+		onShareAppMessage(e) {
+			console.log("onShareAppMessage: ", e)
+		},
+
+		/**
+		 * @param {Number} scrollTop 页面在垂直方向已滚动的距离（单位px）
+		 */
+		onPageScroll(scrollTop) {
+			console.log("onPageScroll: ", scrollTop)
+		},
+
+		/**
+		 * @param {Number} index 原生标题栏按钮数组的下标
+		 */
+		onNavigationBarButtonTap(index) {
+			console.log("onNavigationBarButtonTap: ", index)
+		},
+
+		/**
+		 * @param {String} from	触发返回行为的来源：'backbutton'——左上角导航栏按钮及安卓返回键；'navigateBack'——uni.navigateBack() 方法。
+		 */
+		onBackPress(from) {
+			console.log("onBackPress: ", from)
+		},
+		onNavigationBarSearchInputChanged(e) {
+			console.log("onNavigationBarSearchInputChanged: ", e)
+		},
+		onNavigationBarSearchInputConfirmed(e) {
+			console.log("onNavigationBarSearchInputConfirmed: ", e)
+		},
+		onNavigationBarSearchInputClicked(e) {
+			console.log("onNavigationBarSearchInputClicked: ", e)
+		}
+	}
+</script>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.list {
+		display: flex;
+		margin-bottom: 2upx;
+		background-color: #1AAD19;
+		shape-margin: inherit;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		border: #DD524D;
+	}
+</style>

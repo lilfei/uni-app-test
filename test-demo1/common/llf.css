@@ -1,0 +1,10 @@
+.flex-item {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+}
+
+.flex-item-V {
+	display: flex;
+	flex: 1;
+}
