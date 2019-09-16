@@ -1,6 +1,10 @@
 <template>
 	<view class="container">
-		<view class="list" v-for="(item,index) in list" :key="index" @click="goDetailPage(item.path)">
+		<view class="list" v-for="(item,index) in list" :key="'list_'+index" @click="goDetailPage(item.path)">
+			<text>{{item.name}}</text>
+		</view>
+		<view style="height: 10upx"></view>
+		<view class="list-media" v-for="(item,index) in mediaList" :key="'dedia_'+index" @click="goDediaDetailPage(item.path)">
 			<text>{{item.name}}</text>
 		</view>
 	</view>
@@ -26,7 +30,68 @@
 						name: "movable_area_test",
 						path: "movable_area_test",
 					},
-				]
+					{
+						name: "progress_test",
+						path: "progress_test",
+					},
+					{
+						name: "button_test",
+						path: "button_test",
+					},
+					{
+						name: "checkbox_test",
+						path: "checkbox_test",
+					},
+					{
+						name: "editor_test",
+						path: "editor_test",
+					},
+					{
+						name: "form_test",
+						path: "form_test",
+					},
+					{
+						name: "input_test",
+						path: "input_test",
+					},
+					{
+						name: "label_test",
+						path: "label_test",
+					},
+					{
+						name: "navigator_test",
+						path: "navigator_test",
+					},
+				],
+				mediaList: [{
+						name: "audio_test",
+						path: "audio_test",
+					},
+					{
+						name: "camera_test",
+						path: "camera_test",
+					},
+					{
+						name: "image_test",
+						path: "image_test",
+					},
+					{
+						name: "video_test",
+						path: "video_test",
+					},
+					{
+						name: "map_test",
+						path: "map_test",
+					},
+					{
+						name: "canvas_test",
+						path: "canvas_test",
+					},
+					{
+						name: "webview_test",
+						path: "webview_test",
+					},
+				],
 			}
 		},
 		methods: {
@@ -34,9 +99,47 @@
 				if (this.navigateFlag) {
 					return;
 				}
+
+				// HTML5+ 规范
+				// #ifdef APP-PLUS || APP-PLUS-NVUE || H5 || MP-ALIPAY || MP-BAIDU || MP-TOUTIAO || MP-QQ
+				if (url == "editor_test") {
+					uni.showToast({
+						title: '只有微信小程序才可用'
+					});
+					return;
+				}
+				// #endif
+
+				// 微信小程序
+				// #ifdef MP-WEIXIN
+				// #endif
+
 				this.navigateFlag = true;
 				uni.navigateTo({
 					url: '/pages/test_all/' + url + '/' + url
+				})
+				setTimeout(() => {
+					this.navigateFlag = false;
+				}, 200)
+			},
+			goDediaDetailPage(url) {
+				if (this.navigateFlag) {
+					return;
+				}
+				
+				// HTML5+ 规范
+				// #ifdef APP-PLUS || APP-PLUS-NVUE || H5 || MP-ALIPAY || MP-TOUTIAO 
+				if (url == "camera_test") {
+					uni.showToast({
+						title: '只有微信,百度,QQ小程序才可用'
+					});
+					return;
+				}
+				// #endif
+				
+				this.navigateFlag = true;
+				uni.navigateTo({
+					url: '/pages/media/' + url + '/' + url
 				})
 				setTimeout(() => {
 					this.navigateFlag = false;
@@ -126,6 +229,17 @@
 		display: flex;
 		margin-bottom: 2upx;
 		background-color: #1AAD19;
+		shape-margin: inherit;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		border: #DD524D;
+	}
+	
+	.list-media {
+		display: flex;
+		margin-bottom: 2upx;
+		background-color: #66AAFF;
 		shape-margin: inherit;
 		width: 100%;
 		align-items: center;

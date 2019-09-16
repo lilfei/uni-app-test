@@ -40,6 +40,74 @@
             "path" : "pages/test_all/movable_area_test/movable_area_test",
             "style" : {}
         }
+        ,{
+            "path" : "pages/test_all/progress_test/progress_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/button_test/button_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/checkbox_test/checkbox_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/editor_test/editor_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/form_test/form_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/input_test/input_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/label_test/label_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/navigator_test/navigator_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/navigate/navigator_test1/navigator_test1",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test_all/navigate/redirect_test1/redirect_test1",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/audio_test/audio_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/camera_test/camera_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/image_test/image_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/video_test/video_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/map_test/map_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/canvas_test/canvas_test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/media/webview_test/webview_test",
+            "style" : {}
+        }
     ],
 	"tabBar": {
 		"list": [{
