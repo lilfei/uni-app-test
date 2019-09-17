@@ -1,10 +1,10 @@
 <template>
 	<view class="container">
-		<view class="list" v-for="(item,index) in list" :key="'list_'+index" @click="goDetailPage(item.path)">
+		<view class="list" v-for="(item,index) in list" :key="item.name" @click="goDetailPage(item.path)">
 			<text>{{item.name}}</text>
 		</view>
 		<view style="height: 10upx"></view>
-		<view class="list-media" v-for="(item,index) in mediaList" :key="'dedia_'+index" @click="goDediaDetailPage(item.path)">
+		<view class="list-media" v-for="(item,index) in mediaList" :key="item.name" @click="goDediaDetailPage(item.path)">
 			<text>{{item.name}}</text>
 		</view>
 	</view>
@@ -126,7 +126,7 @@
 				if (this.navigateFlag) {
 					return;
 				}
-				
+
 				// HTML5+ 规范
 				// #ifdef APP-PLUS || APP-PLUS-NVUE || H5 || MP-ALIPAY || MP-TOUTIAO 
 				if (url == "camera_test") {
@@ -136,7 +136,7 @@
 					return;
 				}
 				// #endif
-				
+
 				this.navigateFlag = true;
 				uni.navigateTo({
 					url: '/pages/media/' + url + '/' + url
@@ -235,7 +235,7 @@
 		justify-content: center;
 		border: #DD524D;
 	}
-	
+
 	.list-media {
 		display: flex;
 		margin-bottom: 2upx;
